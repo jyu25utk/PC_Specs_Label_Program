@@ -12,6 +12,7 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
@@ -20,6 +21,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="210"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
@@ -33,14 +36,26 @@
                    Text="HDD:   " FontFamily="Arial"/>
         <TextBlock Grid.Column="1" Grid.Row="4" FontSize="28" 
                    Text="Special:   " FontFamily="Arial"/>
+        <TextBlock Grid.Column="4" Grid.Row="6" FontSize="26"
+                   Text="Number of Copy: " FontFamily="Arial"
+                   VerticalAlignment="Center"/>
         <!-- Variable text -->
         <TextBlock Name="mem" Grid.Column="2" Grid.Row="1" FontSize="28"
-                   Text="Empty" FontFamily="Arial"/>
+                   Text="N/A" FontFamily="Arial"/>
         <TextBlock Name="ssd" Grid.Column="2" Grid.Row="2" FontSize="28"
-                   Text="Empty" FontFamily="Arial"/>
+                   Text="N/A" FontFamily="Arial"/>
         <TextBlock Name="hdd" Grid.Column="2" Grid.Row="3" FontSize="28"
-                   Text="Empty" FontFamily="Arial"/>
+                   Text="N/A" FontFamily="Arial"/>
         <TextBlock Name="special" Grid.Column="2" Grid.Row="4" FontSize="28"
-                   Text="Empty" FontFamily="Arial"/>
+                   Text="N/A" FontFamily="Arial"/>
+        <TextBlock Name="controller" Grid.Column="1" Grid.Row="5" FontSize="28"
+                   Text="Please Connect Your Controller!!!" FontFamily="Arial"
+                   Grid.ColumnSpan="3" VerticalAlignment="Center"/>
+        <TextBlock Name="copy" Grid.Column="5" Grid.Row="6" FontSize="26"
+                   Text="1"  FontFamily="Arial" VerticalAlignment="Center"/>
+        
+        <!-- Buttons -->
+        <Button Name="Print" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Margin="6" 
+                   Content="Print Label" FontSize="20"/>
     </Grid>
 </Window>
