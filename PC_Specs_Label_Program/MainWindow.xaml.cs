@@ -25,5 +25,7 @@ namespace PC_Specs_Label_Program
         {
             InitializeComponent();
         }
+
+        
     }
 }
