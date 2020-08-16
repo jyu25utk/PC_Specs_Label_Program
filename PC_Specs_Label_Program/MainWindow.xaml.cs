@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SharpDX.DirectInput;
+using System.Threading;
 
 namespace PC_Specs_Label_Program
 {
@@ -24,8 +25,22 @@ namespace PC_Specs_Label_Program
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
+        private void PrintLabel(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello!");
+            
+        }
         
+        private void PrintHotKey(object sender, KeyEventArgs e)
+        {
+            
+            if (e.Key == System.Windows.Input.Key.P)
+            {
+                MessageBox.Show("Hello2!");
+            }
+        }
     }
 }
