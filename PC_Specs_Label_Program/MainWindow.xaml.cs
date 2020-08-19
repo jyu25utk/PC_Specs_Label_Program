@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SharpDX.DirectInput;
 using System.Threading;
+using System.IO.Ports;
 
 namespace PC_Specs_Label_Program
 {
@@ -22,6 +23,8 @@ namespace PC_Specs_Label_Program
     /// </summary>
     public partial class MainWindow : Window
     {
+        SerialPort sp = new SerialPort();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +43,33 @@ namespace PC_Specs_Label_Program
             if (e.Key == System.Windows.Input.Key.P)
             {
                 MessageBox.Show("Hello2!");
+            }
+        }
+
+        private void SerialConnect_Click()
+        {
+
+        }
+
+        private void sp_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectdcomboitem = sender as ComboBox;
+            string name = selectdcomboitem.SelectedItem as string;
+        }
+
+        private void sp_connect_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string portName = sp_list.SelectedItem as string;
+                sp.PortName = portName;
+                sp.BaudRate = 9600;
+                sp.Open();
+                sp_status.Text = "Connected!";
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Please connect your device or check the device connection");
             }
         }
     }
