@@ -78,5 +78,8 @@
         <Button x:Name="sp_connect" Grid.Column="6" Grid.Row="2" MaxWidth="200" 
                 Margin="3" Content="Connect" FontSize="15" FontFamily="Arial"
                 Click="sp_connect_Click"/>
+        <Button x:Name="sp_disconnect" Grid.Column="6" Grid.Row="3" MaxWidth="200" 
+                Margin="3" Content="Disconnect" FontSize="15" FontFamily="Arial"
+                Click="sp_disconnect_Click"/>
     </Grid>
 </Window>
