@@ -16,6 +16,8 @@ using SharpDX.DirectInput;
 using System.Threading;
 using System.IO.Ports;
 using System.Windows.Threading;
+using DymoSDK;
+using DymoSDK.Implementations;
 
 namespace PC_Specs_Label_Program
 {
@@ -27,6 +29,7 @@ namespace PC_Specs_Label_Program
     public partial class MainWindow : Window
     {
         SerialPort sp = new SerialPort();
+        int count = 0;
         string recieved_data;
         string mem_str = "N/A";
         string hdd_str = "N/A";
@@ -50,7 +53,11 @@ namespace PC_Specs_Label_Program
             
             if (e.Key == System.Windows.Input.Key.P)
             {
-                MessageBox.Show("Hello2!");
+                count = 0;
+                if (mem_str != "N/A") count++;
+                if (hdd_str != "N/A") count++;
+                if (ssd_str != "N/A") count++;
+                if (special_str != "N/A") count++;
             }
         }
 
@@ -95,15 +102,7 @@ namespace PC_Specs_Label_Program
             }
         }
 
-        private void split_sp(string in_str)
-        {
-            string[] words = in_str.Split(' ');
-            
-            if (words[0] == "m") mem_str = words[1];
-            if (words[0] == "h") hdd_str = words[1];
-            if (words[0] == "s") ssd_str = words[1];
-            if (words[0] == "p") special_str = words[1];
-        }
+        
 
         private delegate void UpdateUiTextDelegate(string text);
         private void Recieve(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
@@ -114,6 +113,32 @@ namespace PC_Specs_Label_Program
         private void WriteData(string text)
         {
             controller_block.Text = text;
+            split_sp(text);
+        }
+        private void split_sp(string in_str)
+        {
+            string[] words = in_str.Split(' ');
+
+            if (words[0] == "m")
+            {
+                mem_str = words[1];
+                mem.Text = words[1];
+            }
+            if (words[0] == "h")
+            {
+                hdd_str = words[1];
+                hdd.Text = words[1];
+            }
+            if (words[0] == "s")
+            {
+                ssd_str = words[1];
+                ssd.Text = words[1];
+            }
+            if (words[0] == "p")
+            {
+                special_str = words[1];
+                special.Text = words[1];
+            }
         }
     }
 }
