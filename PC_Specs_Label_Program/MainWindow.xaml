@@ -71,6 +71,9 @@
         <ComboBox Name="sp_list" Grid.Column="6" Grid.Row="1" 
                   ItemsSource="{Binding Source={StaticResource portNames}}"
                   SelectionChanged="sp_list_SelectionChanged"/>
+        <ComboBox ItemsSource="{Binding Printers}"  SelectedItem="{Binding SelectedPrinter, Mode=OneWayToSource}"  
+                  DisplayMemberPath="Name"  MaxHeight="100" Width="250"
+                  Grid.Column="6" Grid.Row="2"></ComboBox>
 
         <!-- Buttons -->
         <Button x:Name="print" Grid.Column="6" Grid.Row="6" Margin="6" 
